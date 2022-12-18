@@ -25,7 +25,7 @@ module.exports = {
         const levelSystemCheck = await featuresDB.findOne({GuildID: guild.id})
         if(levelSystemCheck) {
             const { LevelSystem } = levelSystemCheck
-            if(!LevelSystem.Enabled) return interaction.reply({content: `I'm sorry to say that to you, but <@${guild.ownerId}> didn't enabled the Level System 🙁`, ephemeral: true})    
+            if(!LevelSystem.Enabled) return interaction.reply({content: `The level system is disabled.`, ephemeral: true})    
 
             const rankcard = new Canvacord.Rank()
             const user = options.getUser("member")
@@ -61,7 +61,7 @@ module.exports = {
                     .setOverlay("#000000", 1, false)
                     .setUsername(`${member.user.username}`)
                     .setDiscriminator(`${member.user.discriminator}`)
-                    .setBackground('IMAGE', LevelSystem.Background || "https://cdn.discordapp.com/attachments/984457148538945546/1003609214222094346/test.png")
+                    .setBackground('IMAGE', LevelSystem.Background || "https://cdn.discordapp.com/attachments/1042433292034654291/1053936118061604924/hello.png")
                     .renderEmojis(true)
                     .setLevelColor(color)
                 } else {
